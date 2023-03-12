@@ -26,13 +26,14 @@ body {
     box-sizing: border-box;
 }
 
-h1{
+h1 {
     font-size: 5.5vh;
 }
+
 .accordion,
 h1 {
     width: 100%;
-     max-width: 1200px;
+    max-width: 1200px;
     min-height: 0;
     display: block;
     position: relative;
@@ -64,7 +65,7 @@ h1 {
     justify-content: space-between;
     border: 1px solid #000;
     font-size: 2vh;
-    color:#071acc;
+    color: #071acc;
     padding: 20px;
     /* font-size: 120%; */
     align-items: center;
@@ -83,14 +84,14 @@ h1 {
     /* transform: scale(0);
     transition: height 0.7s; */
     position: relative;
-  overflow: hidden;
-  /* max-height: 800px; */
-  /* opacity: 1;
+    overflow: hidden;
+    /* max-height: 800px; */
+    /* opacity: 1;
   transform: translate(0, 0); */
-  margin-top: 0;
-  max-height: 0;
-  /* opacity: 0; */
-  /* transform: translate(0, -50%); */
+    margin-top: 0;
+    max-height: 0;
+    /* opacity: 0; */
+    /* transform: translate(0, -50%); */
 }
 
 .accordion-item__content img {
@@ -99,20 +100,17 @@ h1 {
     margin: 0 auto;
 }
 
-.accordion-item__input:checked~.accordion-item__trigger,
-.accordion:hover label.accordion-item__trigger {
-    color:#000;
+.accordion-item__input:checked~.accordion-item__trigger {
+    color: #000;
 }
 
-.accordion-item__input:checked~.accordion-item__content,
-.accordion-item__trigger:hover~ .accordion-item__content,
-.accord-item:hover>.accordion-item__content {
+.accordion-item__input:checked~.accordion-item__content {
     display: block;
     /* height: 500px; */
     font-size: 100%;
-    max-height: 800px; 
-     opacity: 1;
-     cursor: pointer;
+    max-height: 800px;
+    opacity: 1;
+    cursor: pointer;
     /* transform: translate(0, 0); */
 }
 
@@ -123,59 +121,83 @@ h1 {
 }
 
 .accordion-item__content,
-div.plus{
-    transition: all 0.5s ;
+div.plus {
+    transition: all 0.5s;
 }
 
-.plus{
+.plus {
     opacity: 0;
 }
-.plus:before{
-    content:"+";
+
+.plus:before {
+    content: "+";
     font-size: 220%;
     font-weight: bold;
     color: #000;
 }
 
-.accordion:hover div.plus{
-    opacity: 1;
-}
 
 
-.accordion-item__input:checked~.accordion-item__trigger div.plus,
-.accordion-item__trigger:hover>div.plus{
+
+.accordion-item__input:checked~.accordion-item__trigger div.plus {
     transform: rotate(45deg);
 }
 
+@media (hover:hover) {
+    .accordion:hover label.accordion-item__trigger {
+        color: #000;
+    }
+
+    .accordion-item__trigger:hover~.accordion-item__content,
+    .accord-item:hover>.accordion-item__content {
+        display: block;
+        /* height: 500px; */
+        font-size: 100%;
+        max-height: 800px;
+        opacity: 1;
+        cursor: pointer;
+        /* transform: translate(0, 0); */
+    }
+
+    .accordion:hover div.plus {
+        opacity: 1;
+    }
+
+    .accordion-item__trigger:hover>div.plus {
+        transform: rotate(45deg);
+    }
+}
 
 
-
-@media screen and (min-width:320px){
+@media screen and (min-width:320px) {
     h1 {
         font-size: 2.5vh;
     }
-    .accordion-item__trigger{
+
+    .accordion-item__trigger {
         font-size: 1.4vh;
         padding: 5%;
     }
-    
+
 }
 
-@media screen and (min-width:820px){
+@media screen and (min-width:820px) {
     h1 {
         font-size: 4.5vh;
     }
-    .accordion-item__trigger{
+
+    .accordion-item__trigger {
         font-size: 2.5vh;
     }
-    
+
 }
 
 @media (min-width: 1920px) {
     h1 {
         font-size: 5.5vh;
     }
-    .accordion-item__trigger{
+
+    .accordion-item__trigger {
         font-size: 3.2vh;
     }
 }
