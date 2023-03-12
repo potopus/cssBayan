@@ -58,6 +58,7 @@ body {
     padding: 20px;
     font-size: 120%;
     align-items: center;
+    cursor: pointer;
 }
 
 .accordion-item__content {
@@ -90,7 +91,8 @@ body {
 
 .accordion-item__input:checked~.accordion-item__trigger {}
 
-.accordion-item__input:checked~.accordion-item__content {
+.accordion-item__input:checked~.accordion-item__content,
+.accordion-item__trigger:hover~ .accordion-item__content {
     display: block;
     /* height: 500px; */
     font-size: 100%;
@@ -110,12 +112,21 @@ div.plus{
     transition: all 0.5s ;
 }
 
+.plus{
+    opacity: 0;
+}
 .plus:before{
     content:"+";
     font-size: 220%;
     font-weight: bold;
 }
 
-.accordion-item__input:checked~.accordion-item__trigger div.plus{
+.accordion:hover div.plus{
+    opacity: 1;
+}
+
+
+.accordion-item__input:checked~.accordion-item__trigger div.plus,
+.accordion-item__trigger:hover>div.plus{
     transform: rotate(45deg);
 }
