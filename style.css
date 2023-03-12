@@ -129,8 +129,7 @@ div.plus {
     opacity: 0;
 }
 
-.plus:before {
-    content: "+";
+.plus{
     font-size: 220%;
     font-weight: bold;
     color: #000;
