@@ -9,6 +9,8 @@
 body {
     font-family: 'Roboto', Verdana, sans-serif;
     padding: 0;
+    display: flex;
+    height: 100vh;
 }
 
 .wrapper {
@@ -16,7 +18,7 @@ body {
     display: block;
     max-width: 1200px;
     width: 100%;
-    margin: 50px auto;
+    margin: auto;
     padding: 0;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -24,16 +26,18 @@ body {
     box-sizing: border-box;
 }
 
-.accordion {
+h1{
+    font-size: 5.5vh;
+}
+.accordion,
+h1 {
     width: 100%;
-
-     max-width: 600px;
+     max-width: 1200px;
     min-height: 0;
     display: block;
-
     position: relative;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 5%;
     background-color: #fefffa;
     overflow: hidden
 }
@@ -52,11 +56,17 @@ body {
 }
 
 .accordion-item__trigger {
+    font-weight: bold;
+}
+
+.accordion-item__trigger {
     display: flex;
     justify-content: space-between;
     border: 1px solid #000;
+    font-size: 2vh;
+    color:#071acc;
     padding: 20px;
-    font-size: 120%;
+    /* font-size: 120%; */
     align-items: center;
     cursor: pointer;
 }
@@ -89,15 +99,20 @@ body {
     margin: 0 auto;
 }
 
-.accordion-item__input:checked~.accordion-item__trigger {}
+.accordion-item__input:checked~.accordion-item__trigger,
+.accordion:hover label.accordion-item__trigger {
+    color:#000;
+}
 
 .accordion-item__input:checked~.accordion-item__content,
-.accordion-item__trigger:hover~ .accordion-item__content {
+.accordion-item__trigger:hover~ .accordion-item__content,
+.accord-item:hover>.accordion-item__content {
     display: block;
     /* height: 500px; */
     font-size: 100%;
     max-height: 800px; 
      opacity: 1;
+     cursor: pointer;
     /* transform: translate(0, 0); */
 }
 
@@ -119,6 +134,7 @@ div.plus{
     content:"+";
     font-size: 220%;
     font-weight: bold;
+    color: #000;
 }
 
 .accordion:hover div.plus{
@@ -129,4 +145,37 @@ div.plus{
 .accordion-item__input:checked~.accordion-item__trigger div.plus,
 .accordion-item__trigger:hover>div.plus{
     transform: rotate(45deg);
+}
+
+
+
+
+@media screen and (min-width:320px){
+    h1 {
+        font-size: 2.5vh;
+    }
+    .accordion-item__trigger{
+        font-size: 1.4vh;
+        padding: 5%;
+    }
+    
+}
+
+@media screen and (min-width:820px){
+    h1 {
+        font-size: 4.5vh;
+    }
+    .accordion-item__trigger{
+        font-size: 2.5vh;
+    }
+    
+}
+
+@media (min-width: 1920px) {
+    h1 {
+        font-size: 5.5vh;
+    }
+    .accordion-item__trigger{
+        font-size: 3.2vh;
+    }
 }
