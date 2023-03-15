@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+:root {
+    --max-h: 65vh;
+}
 
 
 body {
@@ -16,7 +19,7 @@ body {
 .wrapper {
     display: block;
     width: 100%;
-    margin:  0 auto;
+    margin: 0 auto;
     padding: 10% 26%;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -41,11 +44,9 @@ h1 {
 
 
 .accordion-item__input {
-    position: absolute;
-    left: 0;
-    top: 0;
+    height: 0;
     opacity: 0;
-
+    width: 100%;
 }
 
 .accordion-item__trigger {
@@ -65,6 +66,7 @@ h1 {
 }
 
 .accordion-item__trigger p {
+    flex-basis: 90%;
     padding: 0;
     margin: 0;
 }
@@ -79,50 +81,48 @@ h1 {
     margin: 0 auto;
     max-height: 0;
     box-sizing: border-box;
-    transition: max-height 0.5s;
-    /* transform: scale(0); */
+    transition: max-height 1s;
 }
 
 .accordion-item__content img {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    /* transform: scale(0); */
 }
 
 .accordion-item__input:checked~.accordion-item__trigger {
     color: #000;
 }
 
-.accordion-item__input:checked~.accordion-item__content,
-.accordion-item__input:checked~label .accordion-item__content{
+
+.accordion-item__input:checked~.accordion-item__content {
     display: block;
     box-sizing: border-box;
     border: 0.01vh solid #000;
     font-size: 100%;
-    max-height: 35vh;
+    max-height: var(--max-h);
     cursor: pointer;
     box-sizing: border-box;
-    /* transform: scale(1); */
 }
 
-/* .accordion-item__input:checked~.accordion-item__content img,
-.accordion-item__input:checked~label .accordion-item__content img {
+
+.accordion-item__input:checked~.accordion-item__content img {
     display: block;
     height: auto;
-    /* transform: scale(1);  */
-/* } */ 
+    /* transform: scale(1);   */
+}
 
-.accordion-item__content{
+.accordion-item__content {
     /* transition: max-height 0.7s; */
 }
-/* .accordion-item__trigger{
-    transition: color 2s;
-} */
 
- .plus {
+.accordion-item__trigger {
+    transition: color 2s;
+}
+
+.plus {
     opacity: 0;
-} 
+}
 
 .plus {
     font-size: 160%;
@@ -130,13 +130,12 @@ h1 {
     color: #000;
 }
 
-
-
-
-.accordion-item__input:checked~.accordion-item__trigger div.plus {
+.accordion-item__input:checked~div.plus {
     transform: rotate(45deg);
-    
 }
+
+
+/* ! HOVER */
 
 @media (hover:hover) {
     .accordion:hover label.accordion-item__trigger {
@@ -144,67 +143,100 @@ h1 {
     }
 
     /* такой же как и checked спрятан hover для телефонов */
-    .accordion-item__trigger:hover~.accordion-item__content,
-    .accordion-item__trigger:hover~label .accordion-item__content,
-    .accord-item:hover>label .accordion-item__content,
-    .accord-item:hover>.accordion-item__content {
+
+    .accordion-item__trigger:hover .accordion-item__content,
+    .accord-item:hover>label .accordion-item__content {
         display: block;
+        box-sizing: border-box;
         border: 0.01vh solid #000;
         font-size: 100%;
-        max-height: 900vh;
-        /* opacity: 1; */
+        max-height: var(--max-h);
         cursor: pointer;
-        /* transform: scale(1); */
-        transition: max-height 2s;
+        box-sizing: border-box;
+    }
+
+    .accordion-item__input:hover~.accordion-item__content img {
+        display: block;
+        height: auto;
     }
 
     .accordion:hover div.plus {
-         opacity: 1; 
-
+        opacity: 1;
     }
 
     .accordion-item__trigger:hover>div.plus {
         transform: rotate(45deg);
-       
     }
 }
-div.plus{
+
+div.plus {
     transition: all 1s;
 }
 
+
+
+
 @media screen and (min-width:320px) {
+    body {
+        padding-top: 10%;
+    }
+
+    .wrapper {
+        padding: 0 15%;
+    }
+
     h1 {
-        font-size: 2.5vh;
+        font-size: 200%;
     }
 
     .accordion-item__trigger {
-        font-size: 1.4vh;
+        font-size: 150%;
         /* padding: 5%; */
+    }
+
+    .accordion-item__content {
+        width: 97%;
     }
 
 }
 
+
+
+
 @media screen and (min-width:820px) {
+
+    body {
+        padding-top: 2%;
+    }
+
+    .wrapper {
+        padding: 0 30%;
+    }
+
     h1 {
-        font-size: 4.5vh;
+        font-size: 350%;
     }
 
     .accordion-item__trigger {
-        font-size: 2.5vh;
+        font-size: 180%;
+    }
+
+    .accordion-item__content {
+        width: 70%;
     }
 
 }
 
 @media (min-width: 1920px) {
     .wrapper {
-        padding: 0 20%;
+        padding: 0 30%;
     }
 
     h1 {
-        font-size: 5.5vh;
+        font-size: 550%;
     }
 
     .accordion-item__trigger {
-        font-size: 3.2vh;
+        font-size: 240%;
     }
 }
